@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.cashier.CashierFragment"
+        android:label="@string/menu_cashier"
+        tools:layout="@layout/fragment_cashier" />
+
+    <fragment
+        android:id="@+id/nav_item"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.ItemFragment"
+        android:label="@string/menu_item"
+        tools:layout="@layout/fragment_item" />
+
+    <fragment
+        android:id="@+id/nav_customer"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.customer.CustomerFragment"
+        android:label="@string/menu_customer"
+        tools:layout="@layout/fragment_customer" />
+
+    <fragment
+        android:id="@+id/nav_receipt"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.receipt.ReceiptFragment"
+        android:label="@string/menu_receipt"
+        tools:layout="@layout/fragment_receipt"/>
+
+    <fragment
+        android:id="@+id/nav_add_item"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.AddItemFragment"
+        android:label="@string/submenu_additem"
+        tools:layout="@layout/fragment_add_item" />
+
+    <fragment
+        android:id="@+id/nav_add_customer"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.customer.AddCustomerFragment"
+        android:label="@string/menu_add_customer"
+        tools:layout="@layout/fragment_add_item" />
+
+    <fragment
+        android:id="@+id/nav_cashier_pay"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.cashier.CashierPayFragment"
+        android:label="@string/menu_cashier_pay"
+        tools:layout="@layout/fragment_cashier_pay" />
+</navigation>
