@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">CashierPoint</string>
+    <string name="app_name">Cashier Point</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Cashier Point</string>
+    <string name="nav_header_subtitle">TKBM-TPL</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_pay">Pay</string>
+
+    <string name="menu_cashier">Cashier</string>
+    <string name="menu_item">Item</string>
+    <string name="menu_customer">Customer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submenu_additem">Add Item</string>
+    <string name="menu_add_customer">Add Customer</string>
+    <string name="menu_cashier_pay">Pay</string>
+    <string name="menu_receipt">Receipt</string>
+    <string name="action_save">Save</string>
+    <string name="text_search">Search</string>
 </resources>
