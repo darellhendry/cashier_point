@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1034540095907",
+    "firebase_url": "https://cashier-point.firebaseio.com",
+    "project_id": "cashier-point",
+    "storage_bucket": "cashier-point.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034540095907:android:3906eb4325d37c6c9a6216",
+        "android_client_info": {
+          "package_name": "id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034540095907-t5i4n4nekcdvtj51ifo9ij9i6vuhbm80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXVC4i2ixfALZCpUvA1vsa803P4OhjHgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034540095907-t5i4n4nekcdvtj51ifo9ij9i6vuhbm80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

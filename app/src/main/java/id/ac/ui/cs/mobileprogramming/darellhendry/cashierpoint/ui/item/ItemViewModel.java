@@ -1,19 +1,26 @@
 package id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ItemViewModel extends ViewModel {
+import java.util.List;
 
-    private MutableLiveData<String> mText;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Item;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.repository.ItemRepository;
+
+public class ItemViewModel extends ViewModel {
+    private ItemRepository repository;
 
     public ItemViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        repository = new ItemRepository();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<Item>> getItems() {
+        return repository.getItemsLiveData();
     }
+
+    public void insert(Item item) {
+        repository.insertItem(item);
+    }
+
 }
