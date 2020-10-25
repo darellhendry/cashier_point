@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,6 +23,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.MainActivity;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.R;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Item;
 
@@ -40,9 +43,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
         Item currentItem = items.get(position);
         holder.mItemName.setText(currentItem.getName());
         holder.mItemPrice.setText(String.valueOf(currentItem.getPrice()));
-//        holder.mItemImage.setImageURI();
         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference photoReference = storageReference.child("store.png");
+        StorageReference photoReference = storageReference.child(currentItem.getImageUrl());
         final long ONE_MEGABYTE = 1024 * 1024;
         photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
@@ -69,6 +71,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
         notifyDataSetChanged();
     }
 
+    public Item getItemAt(int position) {
+        return items.get(position);
+    }
     class ItemHolder extends RecyclerView.ViewHolder {
         ImageView mItemImage;
         TextView mItemName;

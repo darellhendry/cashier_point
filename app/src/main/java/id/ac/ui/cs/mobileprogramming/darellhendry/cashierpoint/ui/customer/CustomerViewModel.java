@@ -4,16 +4,26 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.List;
+
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Customer;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Item;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.repository.CustomerRepository;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.repository.ItemRepository;
+
 public class CustomerViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private CustomerRepository repository;
 
     public CustomerViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        this.repository = new CustomerRepository();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<Customer>> getCustomers() {
+        return repository.getCustomersLiveData();
+    }
+
+    public void insert(Customer customer){
+        repository.insertCustomer(customer);
     }
 }
