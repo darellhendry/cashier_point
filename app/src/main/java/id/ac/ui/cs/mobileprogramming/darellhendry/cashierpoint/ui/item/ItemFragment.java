@@ -4,16 +4,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.MainActivity;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.R;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Item;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.utils.NetworkUtils;
 
 
 public class ItemFragment extends Fragment {
@@ -22,8 +30,8 @@ public class ItemFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        itemViewModel =
-                ViewModelProviders.of(this).get(ItemViewModel.class);
+
+
         View root = inflater.inflate(R.layout.fragment_item, container, false);
         root.findViewById(R.id.fab_item).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,13 +39,41 @@ public class ItemFragment extends Fragment {
                 MainActivity.navController.navigate(R.id.nav_add_item);
             }
         });
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        itemViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        RecyclerView recyclerView = root.findViewById(R.id.item_recycle_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        final ItemAdapter itemAdapter = new ItemAdapter(this.getClass().getName());
+        recyclerView.setAdapter(itemAdapter);
+
+        if (!NetworkUtils.isNetworkConnected(getActivity())){
+            Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+            return root;
+        }
+
+        itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+
+        LiveData<List<Item>>  itemsLiveData = itemViewModel.getItems();
+        itemsLiveData.observe(getViewLifecycleOwner(), new Observer<List<Item>>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onChanged(List<Item> items) {
+                itemAdapter.setItems(items);
             }
         });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                itemViewModel.delete(itemAdapter.getItemAt(viewHolder.getAdapterPosition()));
+            }
+        }).attachToRecyclerView(recyclerView);
         return root;
+
     }
+
+
 }
