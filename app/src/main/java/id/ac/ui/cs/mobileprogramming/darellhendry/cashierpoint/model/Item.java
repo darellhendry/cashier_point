@@ -1,5 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model;
 
+import androidx.annotation.NonNull;
+
 public class Item {
     private String name;
     private String imageUrl;
@@ -26,5 +28,11 @@ public class Item {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return name;
     }
 }

@@ -5,29 +5,35 @@
     android:layout_marginTop="8dp"
     android:layout_marginHorizontal="8dp">
     <RelativeLayout
-        android:id="@+id/customer_item_parent_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
+        <ImageView
+            android:id="@+id/image_view_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_menu_receipt"
+            android:layout_centerVertical="true"
+            />
         <TextView
-            android:id="@+id/text_view_cust_name"
+            android:id="@+id/text_view_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/text_view_email"
-            android:layout_alignParentStart="true"
+            android:layout_toEndOf="@id/image_view_icon"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Name"
+            android:text="5000"
             android:layout_marginHorizontal="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
         <TextView
-            android:id="@+id/text_view_email"
+            android:id="@+id/text_view_customer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="email"
+            android:text="Darell Hendry"
             android:layout_centerVertical="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
     </RelativeLayout>

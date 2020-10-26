@@ -14,8 +14,6 @@ import java.util.List;
 
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.R;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Customer;
-import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Item;
-import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.ItemAdapter;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerHolder> {
 
