@@ -12,12 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.MainActivity;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.R;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Receipt;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.ItemAdapter;
@@ -25,6 +30,12 @@ import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.ItemAdapt
 public class ReceiptFragment extends Fragment {
 
     private ReceiptViewModel mViewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     public static ReceiptFragment newInstance() {
         return new ReceiptFragment();
@@ -47,13 +58,27 @@ public class ReceiptFragment extends Fragment {
                 adapter.setList(receipts);
             }
         });
+        Log.d("test", "onCreateView");
         return root;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        Log.d("test", "onCreateOptionsMenu");
+        inflater.inflate(R.menu.receipt_notification, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_notify) {
+            MainActivity.navController.navigate(R.id.nav_notification_config);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

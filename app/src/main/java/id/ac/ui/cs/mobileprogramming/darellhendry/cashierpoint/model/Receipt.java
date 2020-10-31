@@ -1,5 +1,8 @@
 package id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model;
 
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.List;
 
 public class Receipt {
@@ -40,11 +43,23 @@ public class Receipt {
         return items;
     }
 
+    @Exclude
     public int getPrice() {
         int result = 0;
         for (Item item: items) {
             result += item.getPrice();
         }
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "id='" + id + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", items=" + items +
+                ", cash=" + cash +
+                ", date='" + date + '\'' +
+                '}';
     }
 }

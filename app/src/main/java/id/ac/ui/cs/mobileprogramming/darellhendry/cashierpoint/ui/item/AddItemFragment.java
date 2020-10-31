@@ -81,21 +81,19 @@ public class AddItemFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         String name = mNameInput.getText().toString();
         String price = mPriceInput.getText().toString();
-        switch (item.getItemId()) {
-            case R.id.action_save:
-                if (name.equals("")
-                        || price.equals("")
-                        || mImageView.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.ic_menu_gallery).getConstantState()) {
-                    Toast.makeText(getContext(), "Fields must not be empty", Toast.LENGTH_SHORT).show();
-                    return false;
-                }
+        if (item.getItemId() == R.id.action_save) {
+            if (name.equals("")
+                    || price.equals("")
+                    || mImageView.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.ic_menu_gallery).getConstantState()) {
+                Toast.makeText(getContext(), "Fields must not be empty", Toast.LENGTH_SHORT).show();
+                return false;
+            }
 
-                processUpload(name, price);
-                MainActivity.navController.navigate(R.id.nav_item);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            processUpload(name, price);
+            MainActivity.navController.navigate(R.id.nav_item);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

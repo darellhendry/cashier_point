@@ -26,6 +26,7 @@
     <string name="menu_receipt">Receipt</string>
     <string name="action_save">Save</string>
     <string name="text_search">Search</string>
+    <string name="action_receipt_notification">Notification</string>
 
     <string-array name="placeholder_spinner">
         <item>Customer</item>

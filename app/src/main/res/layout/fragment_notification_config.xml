@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.NotificationConfigFragment">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Period of Notification"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/radio_disabled"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp">
+
+        <RadioButton
+            android:id="@+id/radio_disabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disabled" />
+
+        <RadioButton
+            android:id="@+id/radio_every_1_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Every 1 Hour" />
+
+        <RadioButton
+            android:id="@+id/radio_every_morning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Every Morning" />
+
+    </RadioGroup>
+</LinearLayout>
