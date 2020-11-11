@@ -46,4 +46,10 @@
         android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.cashier.CashierPayFragment"
         android:label="@string/menu_cashier_pay"
         tools:layout="@layout/fragment_cashier_pay" />
+
+    <fragment
+        android:id="@+id/nav_notification_config"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.NotificationConfigFragment"
+        android:label="Notification Config"
+        tools:layout="@layout/fragment_notification_config" />
 </navigation>

@@ -49,7 +49,7 @@ public class CashierViewModel extends ViewModel {
         UUID uuid = UUID.randomUUID();
         String id = uuid.toString();
         long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date resultdate = new Date(date);
         Log.d("test",  sdf.format(resultdate));
         Receipt receipt = new Receipt(id, mCustomer.getValue().getEmail(), mItems.getValue(), Integer.parseInt(cash), sdf.format(resultdate));
