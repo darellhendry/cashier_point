@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import java.util.List;
 
@@ -51,16 +54,34 @@ public class ReceiptFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         final ReceiptAdapter adapter = new ReceiptAdapter();
         recyclerView.setAdapter(adapter);
-
         mViewModel.getReceipts().observe(getViewLifecycleOwner(), new Observer<List<Receipt>>() {
             @Override
             public void onChanged(List<Receipt> receipts) {
                 adapter.setList(receipts);
             }
         });
-        Log.d("test", "onCreateView");
+        Log.d("test", "receipt");
+        EditText keyword = root.findViewById(R.id.editText);
+        keyword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("test", String.valueOf(charSequence));
+                mViewModel.updateReceips(charSequence);
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         return root;
     }
+
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

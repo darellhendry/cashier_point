@@ -34,6 +34,8 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.ReceiptV
 
     @Override
     public int getItemCount() {
+        if (receipts == null)
+            return 0;
         return receipts.size();
     }
 
