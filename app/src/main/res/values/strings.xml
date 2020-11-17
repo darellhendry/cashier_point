@@ -14,19 +14,40 @@
     <string name="go">GO</string>
     <string name="permission_denied">Permission denied</string>
     <string name="imageview_description">The imageview that contains the emojified picture</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="no_empty_field">Field must not be empty</string>
+    <string name="done">Done!</string>
+    <string name="period_notification">Period of Notification</string>
 
     <string name="menu_cashier">Cashier</string>
+    <string name="menu_note">Note</string>
     <string name="menu_item">Item</string>
     <string name="menu_customer">Customer</string>
+    <string name="quantity_text">Quantity</string>
+    <string name="charge_text">Charge</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="submenu_additem">Add Item</string>
     <string name="menu_add_customer">Add Customer</string>
+    <string name="menu_add_note">Add Note</string>
     <string name="menu_cashier_pay">Pay</string>
     <string name="menu_receipt">Receipt</string>
+    <string name="menu_notification_config">Notification Config</string>
     <string name="action_save">Save</string>
     <string name="text_search">Search</string>
+    <string name="text_total">Total</string>
+    <string name="text_disabled">Disabled</string>
+    <string name="text_every_one_hour">Every 1 Hour</string>
+    <string name="text_every_morning">Every Morning</string>
     <string name="action_receipt_notification">Notification</string>
+    <string name="notification_title">Receipt Report</string>
+    <string name="notification_body">Yesterday sales</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_price">Price</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_description">Description</string>
+    <string name="button_take_photo">TAKE PHOTO</string>
+    <string name="button_choose_photo">CHOOSE PHOTO</string>
 
     <string-array name="placeholder_spinner">
         <item>Customer</item>

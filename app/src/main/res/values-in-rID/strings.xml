@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cashier Point</string>
+    <string name="navigation_drawer_open">Buka navigation drawer</string>
+    <string name="navigation_drawer_close">Tutup navigation drawer</string>
+    <string name="nav_header_title">Cashier Point</string>
+    <string name="nav_header_subtitle">TKBM-TPL</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_pay">Bayar</string>
+    <string name="delete_success">Gambar telah dihapus!</string>
+    <string name="delete_failure">Gambar gagal dihapus</string>
+    <string name="saved_message">Gambar telah disimpan di %1$s</string>
+    <string name="not_saved">Gambar tidak tersimpan!</string>
+    <string name="error">Terjadi kegagalan saat mencari gambar</string>
+    <string name="go">GO</string>
+    <string name="permission_denied">Izin ditolak</string>
+    <string name="imageview_description">The imageview that contains the emojified picture</string>
+    <string name="no_internet_connection">Tidak ada sambungan internet</string>
+    <string name="no_empty_field">Form tidak boleh kosong, tolong isi terlebih dahulu</string>
+    <string name="done">Selesai!</string>
+    <string name="period_notification">Periode Notifikasi</string>
+
+    <string name="menu_cashier">Kasir</string>
+    <string name="menu_note">Catatan</string>
+    <string name="menu_item">Item</string>
+    <string name="menu_customer">Pelanggan</string>
+    <string name="quantity_text">Kuantitas</string>
+    <string name="charge_text">Biaya</string>
+
+    <string name="hello_blank_fragment">Halo fragment kosong</string>
+    <string name="submenu_additem">Tambah Item</string>
+    <string name="menu_add_customer">Tambah Pelanggan</string>
+    <string name="menu_add_note">Tambah Note</string>
+    <string name="menu_cashier_pay">Bayar</string>
+    <string name="menu_receipt">Struk</string>
+    <string name="menu_notification_config">Konfigurasi Notifikasi</string>
+    <string name="action_save">Simpan</string>
+    <string name="text_search">Cari</string>
+    <string name="text_total">Jumlah</string>
+    <string name="text_disabled">Dimatikan</string>
+    <string name="text_every_one_hour">Setiap 1 Jam</string>
+    <string name="text_every_morning">Setiap Pagi</string>
+    <string name="action_receipt_notification">Notifikasi</string>
+    <string name="notification_title">Laporan Struk</string>
+    <string name="notification_body">Penjualan kemarin</string>
+    <string name="hint_name">Nama</string>
+    <string name="hint_price">Harga</string>
+    <string name="hint_title">Judul</string>
+    <string name="hint_description">Deskripsi</string>
+    <string name="button_take_photo">AMBIL FOTO</string>
+    <string name="button_choose_photo">PILIH FOTO</string>
+
+    <string-array name="placeholder_spinner">
+        <item>Pelanggan</item>
+    </string-array>
+</resources>

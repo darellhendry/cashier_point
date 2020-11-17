@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_cashier" />
 
     <fragment
+        android:id="@+id/nav_note"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.note.NoteFragment"
+        android:label="@string/menu_note"
+        tools:layout="@layout/fragment_note" />
+
+    <fragment
         android:id="@+id/nav_item"
         android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.ItemFragment"
         android:label="@string/menu_item"
@@ -42,6 +48,12 @@
         tools:layout="@layout/fragment_add_item" />
 
     <fragment
+        android:id="@+id/nav_add_note"
+        android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.note.AddNoteFragment"
+        android:label="@string/menu_add_note"
+        tools:layout="@layout/fragment_add_note" />
+
+    <fragment
         android:id="@+id/nav_cashier_pay"
         android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.cashier.CashierPayFragment"
         android:label="@string/menu_cashier_pay"
@@ -50,6 +62,6 @@
     <fragment
         android:id="@+id/nav_notification_config"
         android:name="id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.NotificationConfigFragment"
-        android:label="Notification Config"
+        android:label="@string/menu_notification_config"
         tools:layout="@layout/fragment_notification_config" />
 </navigation>

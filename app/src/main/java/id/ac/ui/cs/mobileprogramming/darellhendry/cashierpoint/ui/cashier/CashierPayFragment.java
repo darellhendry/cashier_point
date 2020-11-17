@@ -41,12 +41,12 @@ public class CashierPayFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (String.valueOf(inputCash.getText()).equals("")) {
-                    Toast.makeText(getContext(), "Field must not be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.no_empty_field), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 cashierViewModel.insertReceipt(String.valueOf(inputCash.getText()));
                 MainActivity.navController.navigate(R.id.nav_home);
-                Toast.makeText(getContext(), "Done!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.done), Toast.LENGTH_SHORT).show();
             }
         });
 

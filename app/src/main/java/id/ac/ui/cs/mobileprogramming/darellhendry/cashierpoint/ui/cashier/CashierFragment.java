@@ -82,7 +82,7 @@ public class CashierFragment extends Fragment {
         final View root = inflater.inflate(R.layout.fragment_cashier, container, false);
 
         if (!NetworkUtils.isNetworkConnected(getActivity())){
-            Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getResources().getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show();
             return root;
         }
 
@@ -135,10 +135,10 @@ public class CashierFragment extends Fragment {
             @Override
             public void onChanged(List<Item> items) {
                 Button quantityButton = (Button) root.findViewById(R.id.button_quantity);
-                quantityButton.setText("QUANTITY\n" + items.size());
+                quantityButton.setText(getResources().getString(R.string.quantity_text) + "\n" + items.size());
                 int charged = cashierViewModel.getSumPrice();
                 Button chargeButton = (Button) root.findViewById(R.id.button_charge);
-                chargeButton.setText("CHARGE\n" + String.valueOf(charged));
+                chargeButton.setText(getResources().getString(R.string.charge_text) + "\n" + String.valueOf(charged));
             }
         });
 
