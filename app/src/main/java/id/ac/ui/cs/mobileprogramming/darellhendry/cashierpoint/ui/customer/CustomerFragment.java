@@ -47,7 +47,7 @@ public class CustomerFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         if (!NetworkUtils.isNetworkConnected(getActivity())){
-            Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getResources().getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show();
             return root;
         }
 

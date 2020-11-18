@@ -46,7 +46,7 @@ public class AddCustomerFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.action_save:
                 if (name.equals("") || email.equals("")) {
-                    Toast.makeText(getContext(), "Fields must not be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.no_empty_field), Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 Customer newCustomer = new Customer(name, email);

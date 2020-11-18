@@ -85,7 +85,7 @@ public class AddItemFragment extends Fragment {
             if (name.equals("")
                     || price.equals("")
                     || mImageView.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.ic_menu_gallery).getConstantState()) {
-                Toast.makeText(getContext(), "Fields must not be empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.no_empty_field, Toast.LENGTH_SHORT).show();
                 return false;
             }
 

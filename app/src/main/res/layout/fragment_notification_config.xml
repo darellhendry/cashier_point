@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Period of Notification"
+        android:text="@string/period_notification"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"/>
@@ -26,19 +26,19 @@
             android:id="@+id/radio_disabled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Disabled" />
+            android:text="@string/text_disabled" />
 
         <RadioButton
             android:id="@+id/radio_every_1_hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Every 1 Hour" />
+            android:text="@string/text_every_one_hour" />
 
         <RadioButton
             android:id="@+id/radio_every_morning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Every Morning" />
+            android:text="@string/text_every_morning" />
 
     </RadioGroup>
 </LinearLayout>

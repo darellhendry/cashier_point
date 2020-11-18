@@ -73,8 +73,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                 (context, NOTIFICATION_ID, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_summary_icon_foreground)
-                .setContentTitle("Receipt Report")
-                .setContentText("Yesterday sales: Rp. " + sum)
+                .setContentTitle(context.getResources().getString(R.string.notification_title))
+                .setContentText(context.getResources().getString(R.string.notification_body) + ": Rp. " + sum)
                 .setContentIntent(contentPendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)

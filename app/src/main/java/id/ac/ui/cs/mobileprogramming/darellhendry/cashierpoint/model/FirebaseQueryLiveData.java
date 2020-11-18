@@ -2,8 +2,11 @@ package id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +42,7 @@ public class FirebaseQueryLiveData extends LiveData<DataSnapshot> {
     private class MyValueEventListener implements ValueEventListener {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
+            Log.d("test", String.valueOf(dataSnapshot));
             setValue(dataSnapshot);
         }
 
