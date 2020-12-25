@@ -1,5 +1,8 @@
 package id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.cashier;
 
+import android.app.Service;
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +31,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -39,6 +43,8 @@ import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.MainActivity;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.R;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Customer;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.model.Item;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.service.AlarmService;
+import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.service.MusicService;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.customer.CustomerViewModel;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.ItemAdapter;
 import id.ac.ui.cs.mobileprogramming.darellhendry.cashierpoint.ui.item.ItemViewModel;
@@ -50,10 +56,13 @@ public class CashierFragment extends Fragment {
     private CustomerViewModel customerViewModel;
     private ItemViewModel itemViewModel;
     private ArrayAdapter spinnerAdapter;
+    private boolean isPlayed;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null)
+            isPlayed = savedInstanceState.getBoolean("isPlayed");
         setHasOptionsMenu(true);
     }
 
@@ -141,8 +150,38 @@ public class CashierFragment extends Fragment {
                 chargeButton.setText(getResources().getString(R.string.charge_text) + "\n" + String.valueOf(charged));
             }
         });
+        final FloatingActionButton btnPlay = root.findViewById(R.id.fab_play);
+        if (!isPlayed) {
+            btnPlay.setImageResource(R.drawable.ic_baseline_play_arrow);
+        } else {
+            btnPlay.setImageResource(R.drawable.ic_baseline_stop);
+        }
 
+
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent musicIntent = new Intent(getContext(), MusicService.class);
+                if (!isPlayed) {
+                    Toast.makeText(getContext(), "Music played!", Toast.LENGTH_SHORT).show();
+                    btnPlay.setImageResource(R.drawable.ic_baseline_stop);
+                    getContext().startService(musicIntent);
+                    isPlayed = true;
+                } else {
+                    getContext().stopService(musicIntent);
+                    Toast.makeText(getContext(), "Music stoped!", Toast.LENGTH_SHORT).show();
+                    btnPlay.setImageResource(R.drawable.ic_baseline_play_arrow);
+                    isPlayed = false;
+                }
+            }
+        });
 
         return root;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putBoolean("isPlayed", isPlayed);
+        super.onSaveInstanceState(outState);
     }
 }

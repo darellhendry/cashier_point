@@ -64,11 +64,13 @@ public class AddItemFragment extends Fragment {
     private Cursor returnCursor;
     private int nameIndex;
 
+    public native String uppercaseStringFromJNI(String input);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        System.loadLibrary("uppercase-word-jni");
     }
 
     @Override
@@ -142,6 +144,14 @@ public class AddItemFragment extends Fragment {
                     startActivityForResult(intent, REQUEST_IMAGE_GET);
                 }
 
+            }
+        });
+
+        root.findViewById(R.id.button_uppercase).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = mNameInput.getText().toString();
+                mNameInput.setText(uppercaseStringFromJNI(text));
             }
         });
         return root;
